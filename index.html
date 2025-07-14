@@ -3,127 +3,68 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>SNM Spices</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #0d0d0d;
-      color: #f1c40f;
-      line-height: 1.6;
-    }
-    header, section, footer {
-      padding: 2rem;
-      max-width: 1000px;
-      margin: auto;
-    }
-    header {
-      text-align: center;
-      border-bottom: 1px solid #f1c40f33;
-    }
-    h1, h2, h3 {
-      color: #f1c40f;
-    }
-    .timeline {
-      padding-left: 1rem;
-    }
-    .product-list li {
-      list-style-type: circle;
-      margin-left: 1rem;
-    }
-    footer {
-      text-align: center;
-      font-size: 0.9rem;
-      color: #aaa;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
   <header>
-    <h1>SNM Spices</h1>
-    <p>Bringing Real Spices Back to Real Homes</p>
-    <p>Rooted in Kerala | Backed by Trust | Crafted for Health</p>
+    <img src="SNM_Spices_Logo_HD.png" alt="SNM Spices Logo" />
+    <nav>
+      <a href="#about">About</a>
+      <a href="#shop">Shop</a>
+      <a href="recipes.html">Beena’s Kitchen</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#contact">Contact</a>
+    </nav>
   </header>
+  <main>
+    <section id="about">
+      <img src="about us.png" alt="About SNM" class="banner" />
+      <h2>About SNM Spices</h2>
+      <p>SNM Spices was founded with a commitment to purity, health, and tradition. With roots in Kerala and a vision for quality, we’ve been providing spice lovers with premium, trustworthy products since 2008.</p>
+    </section>
 
-  <section>
-    <h2>Welcome</h2>
-    <p>At SNM Spices, we don't just pack powders — we preserve purity. What started as a humble flour mill in 2008 in Vilayur village, Kerala, has grown into a mission to deliver truly chemical-free, unadulterated spices to families who care about their health.</p>
-    <p>Our founding belief is simple: “If we feed our families with love, we must feed them with purity too.”</p>
-  </section>
+    <section id="shop">
+      <h2>Our Products</h2>
+      <div class="product-grid">
+        <div class="product-card">
+          <img src="coriander.png" alt="Coriander Powder" />
+          <h3>Coriander Powder</h3>
+          <p>₹35.00</p>
+          <a class="buy-button" href="https://wa.me/916282960125?text=I%20want%20to%20order%20Coriander%20Powder">Buy Now</a>
+        </div>
+        <div class="product-card">
+          <img src="chilli.png" alt="Chilli Powder" />
+          <h3>Chilli Powder</h3>
+          <p>₹40.00</p>
+          <a class="buy-button" href="https://wa.me/916282960125?text=I%20want%20to%20order%20Chilli%20Powder">Buy Now</a>
+        </div>
+        <div class="product-card">
+          <img src="turmeric.png" alt="Turmeric Powder" />
+          <h3>Turmeric Powder</h3>
+          <p>₹30.00</p>
+          <a class="buy-button" href="https://wa.me/916282960125?text=I%20want%20to%20order%20Turmeric%20Powder">Buy Now</a>
+        </div>
+      </div>
+    </section>
 
-  <section>
-    <h2>Our Story</h2>
-    <p>SNM Spices is a family-run initiative rooted in tradition and health. Our father started a small flour mill in 2008 — not to grow a big business, but to ensure the people in our village had access to clean, hygienic, and pure grains.</p>
-    <p>Over time, his concern shifted to spices — often mixed with chemicals, colorants, and harmful preservatives. So he began grinding spices himself — one batch at a time — to protect our plates and our people.</p>
-    <p>Years later, his son — a naturopathy doctor with international experience — returned home, shocked to learn how even certified products contained slow poisons. Another son, a mechanic and video editor, returned from Dubai to explore India’s spice landscapes and reconnect with roots. The youngest supported with sourcing and farmer connections.</p>
-    <p>Together, we created SNM Spices — a brand built on truth, trust, and health.</p>
-  </section>
+    <section id="reviews">
+      <h2>Customer Reviews</h2>
+      <div class="review">⭐️⭐️⭐️⭐️⭐️ “The chilli powder is just perfect...”</div>
+      <div class="review">⭐️⭐️⭐️⭐️⭐️ “നല്ല മഞ്ഞൾപൊടി! Completely satisfied.”</div>
+      <div class="review">⭐️⭐️⭐️⭐️⭐️ “Coriander powder is the freshest.”</div>
+    </section>
 
-  <section>
-    <h2>Our Mission</h2>
-    <p>Our mission is simple: To bring back trust in food — starting with the spices we use every day.</p>
-    <ul>
-      <li>Doctor-led, farmer-connected, and village-rooted</li>
-      <li>Support organic farming, local health, and ethical living</li>
-      <li>Believe healing begins with the basics — and food is medicine</li>
-    </ul>
-  </section>
-
-  <section>
-    <h2>Our Products</h2>
-    <ul class="product-list">
-      <li>🌶️ Chilli Powder</li>
-      <li>🌿 Coriander Powder</li>
-      <li>✨ Turmeric Powder</li>
-    </ul>
-    <p>No artificial colors. No preservatives. No shortcuts. Just pure, real, honest spice.</p>
-  </section>
-
-  <section>
-    <h2>Timeline / Our Journey</h2>
-    <div class="timeline">
-      <p>2008 – Flour mill begins in Vilayur</p>
-      <p>2016 – Family starts focusing on spice purity</p>
-      <p>2023 – SNM Spices officially launched</p>
-      <p>2025 – Production and local supply begins</p>
-      <p>2026 – Launch of Beena’s Kitchen (healthy lifestyle recipes)</p>
-      <p>2027 – First physical outlet of Beena’s Kitchen</p>
-      <p>2028–2029 – Reach every home in Vilayur village</p>
-      <p>2030–2035 – Open wellness center for lifestyle change support</p>
-    </div>
-  </section>
-
-  <section>
-    <h2>Beena’s Kitchen (Coming Soon)</h2>
-    <p>Inspired by our mother’s love and healing recipes, Beena’s Kitchen will be a platform for:</p>
-    <ul>
-      <li>Recipes to support diabetes, cholesterol, high BP</li>
-      <li>Traditional home-cooked meals with health in mind</li>
-      <li>Practical naturopathic food wisdom</li>
-    </ul>
-    <p>Launching online in 2026 | Physical outlet planned in 2027</p>
-  </section>
-
-  <section>
-    <h2>Why SNM is Different</h2>
-    <ul>
-      <li>✅ 100% Pure & Doctor-Approved</li>
-      <li>✅ No artificial colors, preservatives, or fillers</li>
-      <li>✅ Organic farmer support</li>
-      <li>✅ Limited batch production = higher quality</li>
-      <li>✅ Kerala-based, tradition-rooted</li>
-    </ul>
-  </section>
-
-  <section>
-    <h2>Final Message</h2>
-    <p>We are not here to compete with cheap brands. We are here to bring trust back to your kitchen.</p>
-    <p>From our family to yours — Welcome to SNM Spices: Signature Natural Mix.</p>
-  </section>
-
-  <footer>
-    &copy; 2025 SNM Spices. All rights reserved.
-  </footer>
+    <section id="contact">
+      <h2>Let’s Collaborate</h2>
+      <p>Contact us to elevate your shelves with premium flavors.</p>
+      <a href="https://wa.me/916282960125?text=Hi%2C%20I%E2%80%99d%20like%20to%20order..." class="buy-button">🛍️ Chat on WhatsApp</a>
+      <div class="map">
+        <iframe src="https://www.google.com/maps?q=https://maps.app.goo.gl/xfPz4C1LM8hg6HGQ6&output=embed"></iframe>
+      </div>
+    </section>
+  </main>
+  <footer><p>&copy; 2025 SNM Spices</p></footer>
 </body>
 </html>
