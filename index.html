@@ -85,22 +85,21 @@
     }
 
     /* ABOUT */
-.banner {
-  width: 100%;
-  height: 60vh; /* makes it take up 60% of the screen height on desktop */
-  object-fit: cover; /* crops image nicely to fill area */
-  border-radius: 0;
-  margin-bottom: 20px;
-  display: block;
-}
+    .banner {
+      width: 100%;
+      height: 60vh;
+      object-fit: cover;
+      border-radius: 0;
+      margin-bottom: 20px;
+      display: block;
+    }
 
-/* Keep mobile version natural */
-@media (max-width: 768px) {
-  .banner {
-    height: auto;
-    object-fit: contain;
-  }
-}
+    @media (max-width: 768px) {
+      .banner {
+        height: auto;
+        object-fit: contain;
+      }
+    }
 
     /* PRODUCTS */
     .product-grid {
@@ -157,78 +156,35 @@
       margin-top: 15px;
     }
 
-    /* ORDER / PAYMENT FORM (small styles to match theme) */
-    .order-form {
-      background: #fff;
-      border: 1px solid #f3c68b;
-      padding: 18px;
-      border-radius: 10px;
-      max-width: 900px;
-      margin: 20px auto 0;
-      text-align: left;
-    }
-    .order-row {
-      display: flex;
-      gap: 12px;
-      margin-bottom: 12px;
-      flex-wrap: wrap;
-    }
-    .order-row .field {
-      flex: 1 1 220px;
-    }
-    .order-row label {
-      display:block;
-      margin-bottom:6px;
-      font-weight:600;
-      color:#b14a00;
-    }
-    .order-row input[type="text"],
-    .order-row input[type="tel"],
-    .order-row input[type="email"],
-    .order-row textarea,
-    .order-row select {
-      width:100%;
-      padding:8px 10px;
-      border-radius:6px;
-      border:1px solid #f3c68b;
-      background:#fffdf9;
-    }
-    .order-row textarea { min-height:80px; resize:vertical; }
-    .small-note { font-size:0.9em; color:#666; margin-top:6px; }
-
-    .payment-instructions {
+    /* PAYMENT BLOCK */
+    .payment-box {
       background: #fff7ef;
-      border:1px dashed #f3c68b;
-      padding:10px;
-      border-radius:8px;
-      margin-top:10px;
+      border: 2px solid #f3c68b;
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 500px;
+      margin: 25px auto;
+      text-align: center;
     }
-
-    .action-row {
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      margin-top:12px;
-      align-items:center;
+    .payment-box img {
+      width: 260px;
+      margin: 0 auto 15px;
+      border-radius: 10px;
     }
-    .btn {
+    .upi-btn {
+      display: inline-block;
+      margin-top: 12px;
       background: #b14a00;
       color: #fff;
-      padding: 10px 14px;
+      padding: 10px 18px;
       border-radius: 6px;
-      font-weight: 700;
-      text-decoration:none;
-      display:inline-block;
-      border: none;
-      cursor: pointer;
+      font-weight: bold;
     }
-    .btn.secondary {
+    .upi-btn:hover {
       background: #f3c68b;
       color: #000;
     }
-    .btn[disabled] { opacity: 0.4; cursor: not-allowed; }
 
-    /* FOOTER */
     footer {
       background: #b14a00;
       color: #fff;
@@ -237,26 +193,11 @@
       font-size: 0.9em;
     }
 
-    /* RESPONSIVE NAVIGATION */
-    @media (max-width: 600px) {
-      header {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      nav {
-        justify-content: center;
-        width: 100%;
-        margin-top: 10px;
-      }
-      nav a {
-        display: inline-block;
-      }
-    }
   </style>
 </head>
 <body>
   <header>
-    <img src="SNM_Spices_Logo_HD.png" alt="SNM Spices logo showing spice leaves and grains" />
+    <img src="SNM_Spices_Logo_HD.png" alt="SNM Spices logo" />
     <nav>
       <a href="#about">About</a>
       <a href="#shop">Shop</a>
@@ -271,110 +212,41 @@
       <img src="about us.png" alt="About SNM Spices banner" class="banner" />
       <h1>SNM Spices</h1>
       <h2>About SNM Spices</h2>
+
       <p>
-        <!-- Updated About text as requested -->
-        SNM Spices - A family legacy since 2008. We are committed to bringing you pure, high-quality spices sourced from local farmers.
-        Our mission is to enhance the flavour of your dishes while supporting sustainable farming practices. Trusted by households across Kerala.
+        SNM Spices – A family legacy since 2008.  
+        We are committed to bringing you pure, high-quality spices sourced from trusted local farmers.  
+        Our mission is to enhance the flavour of your dishes while supporting sustainable farming practices.  
+        Trusted by households across Kerala.
       </p>
     </section>
 
     <section id="shop">
       <h2>Our Products</h2>
+
+      <!-- You will update product images and prices later -->
       <div class="product-grid">
         <div class="product-card">
           <img src="coriander.png" alt="Coriander Powder" />
           <h3>Coriander Powder</h3>
           <p>₹35.00</p>
-          <a class="buy-button" href="https://wa.me/916282960125?text=I%20want%20to%20order%20Coriander%20Powder">Buy Now</a>
+          <a class="buy-button" href="https://wa.me/916282960125?text=I%20want%20to%20order%20Coriander%20Powder">Order</a>
         </div>
+
         <div class="product-card">
           <img src="chilli.png" alt="Chilli Powder" />
           <h3>Chilli Powder</h3>
           <p>₹40.00</p>
-          <a class="buy-button" href="https://wa.me/916282960125?text=I%20want%20to%20order%20Chilli%20Powder">Buy Now</a>
+          <a class="buy-button" href="https://wa.me/916282960125?text=I%20want%20to%20order%20Chilli%20Powder">Order</a>
         </div>
+
         <div class="product-card">
           <img src="turmeric.png" alt="Turmeric Powder" />
           <h3>Turmeric Powder</h3>
           <p>₹30.00</p>
-          <a class="buy-button" href="https://wa.me/916282960125?text=I%20want%20to%20order%20Turmeric%20Powder">Buy Now</a>
+          <a class="buy-button" href="https://wa.me/916282960125?text=I%20want%20to%20order%20Turmeric%20Powder">Order</a>
         </div>
       </div>
-
-      <!-- ORDER FORM -->
-      <div class="order-form" id="orderFormContainer" aria-live="polite">
-        <h3>Place an Order</h3>
-        <p class="small-note">Fill full delivery address below. Payment options shown after address is filled. After payment, confirm by sending the auto-generated WhatsApp message to complete the order.</p>
-
-        <form id="orderForm" onsubmit="return false;">
-          <div class="order-row">
-            <div class="field">
-              <label for="custName">Full name</label>
-              <input id="custName" name="custName" type="text" placeholder="e.g. Beena Mathews" required>
-            </div>
-            <div class="field">
-              <label for="custPhone">Phone (WhatsApp)</label>
-              <input id="custPhone" name="custPhone" type="tel" placeholder="10-digit phone number" required>
-            </div>
-          </div>
-
-          <div class="order-row">
-            <div class="field">
-              <label for="custEmail">Email (optional)</label>
-              <input id="custEmail" name="custEmail" type="email" placeholder="email@example.com">
-            </div>
-            <div class="field">
-              <label for="productSelect">Product</label>
-              <select id="productSelect" name="productSelect">
-                <option value="Coriander Powder|35">Coriander Powder — ₹35</option>
-                <option value="Chilli Powder|40">Chilli Powder — ₹40</option>
-                <option value="Turmeric Powder|30">Turmeric Powder — ₹30</option>
-              </select>
-            </div>
-          </div>
-
-          <div class="order-row">
-            <div class="field">
-              <label for="quantity">Quantity (no. of packets)</label>
-              <input id="quantity" name="quantity" type="number" min="1" value="1" required>
-            </div>
-            <div class="field">
-              <label for="address">Full delivery address (required)</label>
-              <textarea id="address" name="address" placeholder="House / Flat no, Street, City, Pincode, Landmark" required></textarea>
-            </div>
-          </div>
-
-          <div class="order-row">
-            <div class="field">
-              <label for="paymentMethod">Payment method</label>
-              <select id="paymentMethod" name="paymentMethod">
-                <option value="upi">UPI (GPay / PhonePe)</option>
-                <option value="bank">Bank Transfer</option>
-                <option value="cod">Cash on Delivery (COD)</option>
-              </select>
-            </div>
-
-            <div class="field">
-              <label>&nbsp;</label>
-              <div id="calculatedTotal" class="small-note">Total: ₹<span id="totalAmount">35</span></div>
-            </div>
-          </div>
-
-          <div id="paymentArea" class="payment-instructions" style="display:none;">
-            <!-- Payment-specific instructions will be injected here -->
-          </div>
-
-          <div class="action-row">
-            <button id="proceedBtn" class="btn" disabled>Proceed</button>
-            <button id="waPlaceOrder" class="btn secondary" style="display:none;">Send Order via WhatsApp</button>
-            <button id="resetBtn" type="button" class="btn secondary" style="background:#fff7ef; color:#000;">Reset</button>
-          </div>
-
-        </form>
-
-        <div id="orderStatus" class="small-note" style="margin-top:10px;"></div>
-      </div>
-
     </section>
 
     <section id="reviews">
@@ -386,212 +258,46 @@
 
     <section id="contact">
       <h2>Let’s Collaborate</h2>
-      <p>Contact us to elevate your shelves with premium flavors.</p>
+      <p>Contact us to elevate your shelves with premium flavours.</p>
+
       <a href="https://wa.me/916282960125?text=Hi%2C%20I%E2%80%99d%20like%20to%20order..." class="buy-button">🛍️ Chat on WhatsApp</a>
+
       <div class="map">
         <iframe 
-    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3917.908964165582!2d76.16485207479377!3d10.894522957004776!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba7c9ae731084eb%3A0x2839cc4d1d68c17a!2sSNM%20Spices!5e0!3m2!1sen!2sin!4v1761363824343!5m2!1sen!2sin" 
-    allowfullscreen 
-    loading="lazy" 
-    referrerpolicy="no-referrer-when-downgrade">
-  </iframe>
-</div>
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3917.908964165582!2d76.16485207479377!3d10.894522957004776!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba7c9ae731084eb%3A0x2839cc4d1d68c17a!2sSNM%20Spices!5e0!3m2!1sen!2sin!4v1761363824343!5m2!1sen!2sin"
+          allowfullscreen loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
       </div>
+
+      <!-- PAYMENT SECTION ADDED HERE -->
+      <div class="payment-box">
+        <h2>Secure Payment</h2>
+
+        <img src="qr-pay.jpeg" alt="PhonePe QR Code for payment">
+
+        <p><strong>UPI ID:</strong> 6282960125@ybl</p>
+        <p><strong>Name:</strong> NIDHIN P.</p>
+
+        <a class="upi-btn" href="upi://pay?pa=6282960125@ybl&pn=NIDHIN%20P&cu=INR">
+          💳 Pay Now (UPI)
+        </a>
+
+        <p style="margin-top:15px;">
+          After payment, please send the <strong>payment screenshot</strong> and your<br>
+          <strong>full delivery address</strong> to our WhatsApp:
+        </p>
+
+        <a class="upi-btn" href="https://wa.me/916282960125?text=I%20have%20completed%20the%20payment.%20Here%20is%20my%20address%3A">
+          📩 Send Screenshot on WhatsApp
+        </a>
+      </div>
+
     </section>
   </main>
 
   <footer>
     <p>&copy; 2025 SNM Spices | All Rights Reserved</p>
   </footer>
-
-  <script>
-    /* ORDER FORM LOGIC */
-    (function(){
-      const productSelect = document.getElementById('productSelect');
-      const quantityInput = document.getElementById('quantity');
-      const totalAmountSpan = document.getElementById('totalAmount');
-      const address = document.getElementById('address');
-      const paymentMethod = document.getElementById('paymentMethod');
-      const paymentArea = document.getElementById('paymentArea');
-      const proceedBtn = document.getElementById('proceedBtn');
-      const waPlaceOrder = document.getElementById('waPlaceOrder');
-      const resetBtn = document.getElementById('resetBtn');
-      const orderStatus = document.getElementById('orderStatus');
-
-      // Replace these placeholders with your actual details
-      const SELLER_WHATSAPP = "916282960125"; // seller WhatsApp number (country code + number, no '+')
-      const MERCHANT_NAME = "SNM Spices";
-      // For UPI: replace with your real UPI ID (e.g. example@oksbi)
-      const UPI_ID = "your-upi@bank";
-      // For Bank transfer: replace with real account details below
-      const BANK_DETAILS = {
-        accountName: "SNM Spices",
-        accountNumber: "XXXXXXXXXXXXXX",
-        ifsc: "SBIN0000000",
-        bankName: "State Bank of India",
-        branch: "Thodupuzha (replace with your branch)"
-      };
-
-      // show total
-      function updateTotal(){
-        const [name, priceStr] = productSelect.value.split('|');
-        const price = parseFloat(priceStr || 0);
-        const qty = Math.max(1, parseInt(quantityInput.value) || 1);
-        const total = price * qty;
-        totalAmountSpan.textContent = total.toFixed(2);
-      }
-
-      // validate address to enable proceed
-      function checkReady(){
-        const nameVal = document.getElementById('custName').value.trim();
-        const phoneVal = document.getElementById('custPhone').value.trim();
-        const addressVal = address.value.trim();
-        const qty = quantityInput.value;
-        if(nameVal && phoneVal && addressVal && qty && parseInt(qty) > 0){
-          proceedBtn.disabled = false;
-        } else {
-          proceedBtn.disabled = true;
-        }
-      }
-
-      // display payment area
-      function renderPaymentArea(){
-        const method = paymentMethod.value;
-        const total = totalAmountSpan.textContent;
-        paymentArea.style.display = 'block';
-        paymentArea.innerHTML = "";
-
-        if(method === 'upi'){
-          // UPI intent link (works on mobile UPI apps). Replace UPI_ID above with your ID.
-          const upiLink = `upi://pay?pa=${encodeURIComponent(UPI_ID)}&pn=${encodeURIComponent(MERCHANT_NAME)}&am=${encodeURIComponent(total)}&cu=INR`;
-          paymentArea.innerHTML = `
-            <strong>UPI Payment</strong>
-            <p class="small-note">Click the button below on mobile to open your UPI app (GPay / PhonePe / BHIM). Amount: ₹${total}</p>
-            <div style="display:flex; gap:8px; flex-wrap:wrap; margin-top:8px;">
-              <a id="upiBtn" class="btn" href="${upiLink}">Pay with UPI</a>
-              <button id="copyUpi" class="btn secondary" type="button" style="background:#fff7ef; color:#000;">Copy UPI ID</button>
-            </div>
-            <p style="margin-top:8px; font-size:0.9em;">Or open your UPI app and pay to UPI ID: <strong id="showUpi">${UPI_ID}</strong></p>
-            <p class="small-note">After paying, click <strong>Send Order via WhatsApp</strong> to notify us (we will confirm dispatch).</p>
-          `;
-          // attach copy handler
-          setTimeout(()=> {
-            const copyUpi = document.getElementById('copyUpi');
-            if(copyUpi) copyUpi.addEventListener('click', ()=> {
-              navigator.clipboard.writeText(UPI_ID).then(()=>{
-                orderStatus.textContent = 'UPI ID copied to clipboard. Please complete payment in your UPI app.';
-              });
-            });
-          },50);
-
-        } else if(method === 'bank'){
-          paymentArea.innerHTML = `
-            <strong>Bank Transfer</strong>
-            <p class="small-note">Transfer the total amount ₹${total} to the bank account below, then click <em>Send Order via WhatsApp</em> and mention the transaction reference / screenshot.</p>
-            <div style="margin-top:8px;">
-              <div><strong>Account name:</strong> ${BANK_DETAILS.accountName}</div>
-              <div><strong>Account number:</strong> <span id="acctNum">${BANK_DETAILS.accountNumber}</span></div>
-              <div><strong>IFSC:</strong> ${BANK_DETAILS.ifsc}</div>
-              <div><strong>Bank:</strong> ${BANK_DETAILS.bankName} — ${BANK_DETAILS.branch}</div>
-            </div>
-            <div style="display:flex; gap:8px; margin-top:8px;">
-              <button id="copyBank" class="btn secondary" style="background:#fff7ef; color:#000;">Copy Account No</button>
-              <button id="copyIfsc" class="btn secondary" style="background:#fff7ef; color:#000;">Copy IFSC</button>
-            </div>
-            <p class="small-note" style="margin-top:8px;">After transfer, press <strong>Send Order via WhatsApp</strong> and attach your transaction id / screenshot so we can confirm and dispatch.</p>
-          `;
-          setTimeout(()=> {
-            const copyBank = document.getElementById('copyBank');
-            const copyIfsc = document.getElementById('copyIfsc');
-            if(copyBank) copyBank.addEventListener('click', ()=> {
-              navigator.clipboard.writeText(BANK_DETAILS.accountNumber).then(()=> orderStatus.textContent = 'Account number copied to clipboard.');
-            });
-            if(copyIfsc) copyIfsc.addEventListener('click', ()=> {
-              navigator.clipboard.writeText(BANK_DETAILS.ifsc).then(()=> orderStatus.textContent = 'IFSC copied to clipboard.');
-            });
-          },50);
-
-        } else if(method === 'cod'){
-          paymentArea.innerHTML = `
-            <strong>Cash on Delivery</strong>
-            <p class="small-note">Customer will pay in cash to the delivery person when the order arrives. Click <strong>Send Order via WhatsApp</strong> to place the order.</p>
-          `;
-        }
-        // show WA button
-        waPlaceOrder.style.display = 'inline-block';
-      }
-
-      // make whatsapp message and open chat
-      function sendWhatsAppMessage(){
-        const name = document.getElementById('custName').value.trim();
-        const phone = document.getElementById('custPhone').value.trim();
-        const email = document.getElementById('custEmail').value.trim();
-        const prodVal = productSelect.value.split('|')[0];
-        const qty = quantityInput.value;
-        const total = totalAmountSpan.textContent;
-        const addr = address.value.trim();
-        const method = paymentMethod.value;
-        const msgLines = [
-          `New order from website — ${MERCHANT_NAME}`,
-          `Name: ${name}`,
-          `Phone: ${phone}`,
-          email ? `Email: ${email}` : '',
-          `Product: ${prodVal}`,
-          `Quantity: ${qty}`,
-          `Total: ₹${total}`,
-          `Payment method: ${method === 'upi' ? 'UPI' : method === 'bank' ? 'Bank Transfer' : 'Cash on Delivery (COD)'}`,
-          `Address: ${addr}`,
-          '',
-          'Please confirm receipt and expected delivery date.'
-        ];
-        const msg = encodeURIComponent(msgLines.filter(Boolean).join('%0A'));
-        const waUrl = `https://wa.me/${SELLER_WHATSAPP}?text=${msg}`;
-        window.open(waUrl,'_blank');
-        orderStatus.textContent = 'WhatsApp window opened — please send the message to complete the order. We will reply to confirm.';
-      }
-
-      // event listeners
-      productSelect.addEventListener('change', ()=> { updateTotal(); checkReady(); });
-      quantityInput.addEventListener('input', ()=> { updateTotal(); checkReady(); });
-      document.getElementById('custName').addEventListener('input', checkReady);
-      document.getElementById('custPhone').addEventListener('input', checkReady);
-      address.addEventListener('input', checkReady);
-      paymentMethod.addEventListener('change', renderPaymentArea);
-
-      proceedBtn.addEventListener('click', ()=> {
-        // when proceed clicked, show payment area for chosen method
-        renderPaymentArea();
-        // scroll payment area into view
-        paymentArea.scrollIntoView({behavior:'smooth', block:'center'});
-      });
-
-      waPlaceOrder.addEventListener('click', ()=> {
-        // user confirms they paid (or will pay for COD); open whatsapp message to place order
-        sendWhatsAppMessage();
-      });
-
-      resetBtn.addEventListener('click', ()=> {
-        document.getElementById('orderForm').reset();
-        updateTotal();
-        paymentArea.style.display = 'none';
-        waPlaceOrder.style.display = 'none';
-        proceedBtn.disabled = true;
-        orderStatus.textContent = '';
-      });
-
-      // initial
-      updateTotal();
-      checkReady();
-
-      // Accessibility: enable pressing Enter on form to proceed
-      document.getElementById('orderForm').addEventListener('keydown', function(e){
-        if(e.key === 'Enter'){
-          e.preventDefault();
-          if(!proceedBtn.disabled) proceedBtn.click();
-        }
-      });
-
-    })();
-  </script>
 </body>
 </html>
