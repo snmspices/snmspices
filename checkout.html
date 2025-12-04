@@ -1,307 +1,148 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Checkout — SNM Spices</title>
-  <link rel="icon" href="SNM_Spices_Logo_HD.png" type="image/png" />
-  <meta name="description" content="Checkout — SNM Spices order page">
-  <style>
-    /* Keep same look and feel as index.html */
-    * { margin:0; padding:0; box-sizing:border-box; }
-    body { font-family:"Poppins",sans-serif; line-height:1.6; color:#333; background:#fffdf9; }
-    header { display:flex; justify-content:space-between; align-items:center; background:#fff7ef; padding:10px 20px; border-bottom:2px solid #f3c68b; position:sticky; top:0; z-index:1000; }
-    header img { width:120px; }
-    nav { display:flex; gap:12px; }
-    nav a { color:inherit; text-decoration:none; padding:8px 10px; font-weight:600; border-radius:6px; }
-    main { padding:20px; max-width:1000px; margin:0 auto; }
-    h1,h2,h3 { color:#b14a00; margin-bottom:10px; }
-    .checkout-grid { display:grid; grid-template-columns: 1fr 380px; gap:20px; align-items:start; }
-    @media (max-width:900px){ .checkout-grid { grid-template-columns:1fr; } }
-
-    /* Form styling */
-    .form-box { background:#fff; border:1px solid #f3c68b; padding:18px; border-radius:10px; }
-    label { display:block; font-weight:700; color:#b14a00; margin-bottom:6px; }
-    input[type="text"], input[type="tel"], input[type="email"], textarea, select { width:100%; padding:8px 10px; border-radius:6px; border:1px solid #f3c68b; background:#fffdf9; }
-    textarea { min-height:90px; resize:vertical; }
-    .form-row { margin-bottom:12px; }
-    .small-note { font-size:0.95em; color:#666; margin-top:6px; }
-
-    /* sidebar payment */
-    .side-box { background:#fff7ef; border:2px solid #f3c68b; padding:18px; border-radius:10px; text-align:center; }
-    .side-box img { width:240px; border-radius:8px; margin-bottom:10px; }
-    .btn { display:inline-block; background:#b14a00; color:#fff; padding:10px 14px; border-radius:6px; font-weight:700; text-decoration:none; border:none; cursor:pointer; }
-    .btn.secondary { background:#f3c68b; color:#000; }
-    .total { font-size:1.2em; font-weight:800; color:#000; margin-top:8px; }
-
-    footer { background:#b14a00; color:#fff; text-align:center; padding:15px; margin-top:20px; }
-
-    .note-block { background:#fff; border:1px dashed #f3c68b; padding:10px; border-radius:8px; margin-top:12px; font-size:0.95em; }
-
-    .link-small { font-size:0.95em; display:inline-block; margin-top:8px; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - SNM Spices</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .checkout-container {
+            max-width: 600px;
+            margin: 30px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .checkout-title {
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            font-weight: 600;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        .payment-section {
+            margin-top: 20px;
+            text-align: center;
+        }
+        .qr-image {
+            width: 230px;
+            margin: 10px auto;
+            display: block;
+        }
+        .pay-button, .whatsapp-btn {
+            width: 100%;
+            background: green;
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            margin-top: 10px;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .whatsapp-btn {
+            background: #25D366;
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <img src="SNM_Spices_Logo_HD.png" alt="SNM Spices logo" />
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="recipes.html">Beena’s Kitchen</a>
-      <a href="index.html#contact">Contact</a>
-    </nav>
-  </header>
 
-  <main>
-    <h1>Checkout</h1>
-    <div class="checkout-grid">
-      <!-- LEFT: Customer form -->
-      <div class="form-box" aria-labelledby="checkoutFormHeading">
-        <h2 id="checkoutFormHeading">Delivery & Contact Details</h2>
+<div class="checkout-container">
+    <div class="checkout-title">Order Checkout</div>
 
-        <div class="form-row">
-          <label for="productName">Product</label>
-          <input id="productName" type="text" readonly>
-        </div>
-
-        <div class="form-row">
-          <label for="unitPrice">Unit Price (₹)</label>
-          <input id="unitPrice" type="text" readonly>
-        </div>
-
-        <div class="form-row">
-          <label for="quantity">Quantity</label>
-          <input id="quantity" type="number" min="1" value="1">
-        </div>
-
-        <div class="form-row">
-          <label for="custName">Full name</label>
-          <input id="custName" type="text" placeholder="e.g. Beena Mathews" required>
-        </div>
-
-        <div class="form-row">
-          <label for="custPhone">Phone (WhatsApp)</label>
-          <input id="custPhone" type="tel" placeholder="10-digit phone number" required>
-        </div>
-
-        <div class="form-row">
-          <label for="custEmail">Email (optional)</label>
-          <input id="custEmail" type="email" placeholder="email@example.com">
-        </div>
-
-        <div class="form-row">
-          <label for="address">Full delivery address</label>
-          <textarea id="address" placeholder="House/Flat no, Street, City, Pincode, Landmark" required></textarea>
-        </div>
-
-        <div class="form-row">
-          <label for="note">Notes (optional)</label>
-          <input id="note" type="text" placeholder="Any delivery note e.g. near hospital">
-        </div>
-
-        <div class="form-row">
-          <label for="paymentMethod">Payment method</label>
-          <select id="paymentMethod">
-            <option value="upi">UPI (PhonePe / GPay / BHIM)</option>
-            <option value="bank">Bank Transfer</option>
-            <option value="cod">Cash on Delivery (COD)</option>
-          </select>
-        </div>
-
-        <div class="note-block" id="addressReminder">Please fill the full address. Payment instructions will appear on the right after you select payment method.</div>
-
-        <div style="margin-top:12px;">
-          <button id="showPayment" class="btn">Proceed to Payment</button>
-          <a href="index.html" class="btn secondary" style="text-decoration:none; margin-left:8px;">Continue Shopping</a>
-        </div>
-
-      </div>
-
-      <!-- RIGHT: Payment box -->
-      <aside class="side-box" id="paymentPanel" aria-live="polite">
-        <h2>Payment & Order Summary</h2>
-
-        <!-- QR image (qr-pay.jpeg must be present in repository) -->
-        <img src="qr-pay.jpeg" alt="PhonePe QR code">
-
-        <div style="text-align:left; margin-top:6px;">
-          <div><strong>UPI ID:</strong> 6282960125@ybl</div>
-          <div><strong>Name:</strong> NIDHIN P.</div>
-        </div>
-
-        <div class="total" id="calculatedTotal">Total: ₹0.00</div>
-
-        <div id="paymentButtons" style="margin-top:10px;">
-          <!-- UPI pay button will be injected/updated with amount -->
-          <a id="upiPayBtn" class="btn" href="#">💳 Pay Now (UPI)</a>
-          <div style="margin-top:8px;">
-            <button id="copyUpi" class="btn secondary">Copy UPI ID</button>
-            <button id="copyAccount" class="btn secondary" style="margin-left:6px;">Copy Bank Details</button>
-          </div>
-        </div>
-
-        <div class="note-block" style="margin-top:12px;">
-          After you complete payment, please click <strong>Send Order on WhatsApp</strong> below and attach the payment screenshot.
-        </div>
-
-        <div style="margin-top:10px;">
-          <button id="sendWhatsApp" class="btn" style="background:#25D366;">📩 Send Order on WhatsApp</button>
-        </div>
-
-        <p class="link-small" style="margin-top:10px; text-align:left;">
-          <strong>Bank details:</strong><br>
-          Account name: SNM Spices (placeholder)<br>
-          A/c No: XXXXXXXXXXXXXX<br>
-          IFSC: SBIN0000000<br>
-          Bank: State Bank of India — Thodupuzha
-        </p>
-
-      </aside>
+    <div class="form-group">
+        <label>Product</label>
+        <input type="text" id="productName" readonly>
     </div>
-  </main>
 
-  <footer>
-    <p>&copy; 2025 SNM Spices | All Rights Reserved</p>
-  </footer>
+    <div class="form-group">
+        <label>Your Name</label>
+        <input type="text" id="customerName" placeholder="Enter your full name" required>
+    </div>
 
-  <script>
-    (function(){
-      // Seller details
-      const SELLER_WHATSAPP = "916282960125"; // no '+' sign, for wa.me
-      const UPI_ID = "6282960125@ybl";
-      const UPI_NAME = "NIDHIN P.";
-      const BANK_DETAILS = {
-        accountName: "SNM Spices",
-        accountNumber: "XXXXXXXXXXXXXX",
-        ifsc: "SBIN0000000",
-        bankName: "State Bank of India",
-        branch: "Thodupuzha"
-      };
+    <div class="form-group">
+        <label>Phone Number</label>
+        <input type="text" id="customerPhone" placeholder="Enter your phone number" required>
+    </div>
 
-      // Helpers to read URL params
-      function getParam(name){
-        const url = new URL(window.location.href);
-        return url.searchParams.get(name) || "";
-      }
+    <div class="form-group">
+        <label>Delivery Address</label>
+        <textarea id="customerAddress" rows="3" placeholder="House No, Street, City, Pincode" required></textarea>
+    </div>
 
-      // Elements
-      const productNameInput = document.getElementById('productName');
-      const unitPriceInput = document.getElementById('unitPrice');
-      const qtyInput = document.getElementById('quantity');
-      const totalSpan = document.getElementById('calculatedTotal');
-      const upiPayBtn = document.getElementById('upiPayBtn');
-      const copyUpiBtn = document.getElementById('copyUpi');
-      const copyAccountBtn = document.getElementById('copyAccount');
-      const paymentMethodSelect = document.getElementById('paymentMethod');
-      const showPaymentBtn = document.getElementById('showPayment');
-      const paymentPanel = document.getElementById('paymentPanel');
-      const sendWhatsAppBtn = document.getElementById('sendWhatsApp');
+    <div class="form-group">
+        <label>Quantity</label>
+        <input type="number" id="customerQty" value="1" min="1">
+    </div>
 
-      // Customer fields
-      const nameField = document.getElementById('custName');
-      const phoneField = document.getElementById('custPhone');
-      const emailField = document.getElementById('custEmail');
-      const addressField = document.getElementById('address');
-      const noteField = document.getElementById('note');
+    <div class="payment-section">
+        <h3>Make Payment</h3>
+        <img src="qr-pay.jpeg" alt="QR Code" class="qr-image">
 
-      // Initialize product and price from URL
-      const productFromUrl = decodeURIComponent(getParam('product') || '');
-      const priceFromUrl = parseFloat(getParam('price') || '0');
+        <p><b>UPI ID:</b> 6282960125@ybl</p>
+        <p><b>Account Holder:</b> NIDHIN P</p>
 
-      productNameInput.value = productFromUrl || 'Product';
-      unitPriceInput.value = isNaN(priceFromUrl) ? '0.00' : priceFromUrl.toFixed(2);
+        <!-- Pay Button -->
+        <a id="payButton" class="pay-button">Pay Now</a>
 
-      // calculate total
-      function updateTotal(){
-        const unit = parseFloat(unitPriceInput.value) || 0;
-        const qty = Math.max(1, parseInt(qtyInput.value) || 1);
-        const total = unit * qty;
-        totalSpan.textContent = 'Total: ₹' + total.toFixed(2);
-        // update UPI link with amount
-        const upiDeep = `upi://pay?pa=${encodeURIComponent(UPI_ID)}&pn=${encodeURIComponent(UPI_NAME)}&am=${encodeURIComponent(total.toFixed(2))}&cu=INR`;
-        upiPayBtn.setAttribute('href', upiDeep);
-      }
+        <!-- WhatsApp Confirmation Button -->
+        <a id="waButton" class="whatsapp-btn" target="_blank">
+            Send Payment Screenshot on WhatsApp
+        </a>
+    </div>
+</div>
 
-      // Copy handlers
-      copyUpiBtn.addEventListener('click', ()=> {
-        navigator.clipboard.writeText(UPI_ID).then(()=> {
-          alert('UPI ID copied to clipboard: ' + UPI_ID);
-        });
-      });
+<script>
+    // Read product name from URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const product = urlParams.get("product");
+    document.getElementById("productName").value = product;
 
-      copyAccountBtn.addEventListener('click', ()=> {
-        const txt = `${BANK_DETAILS.accountName} | ${BANK_DETAILS.accountNumber} | IFSC: ${BANK_DETAILS.ifsc}`;
-        navigator.clipboard.writeText(txt).then(()=> {
-          alert('Bank details copied to clipboard.');
-        });
-      });
+    // Pay Now Button
+    document.getElementById("payButton").href =
+        "upi://pay?pa=6282960125@ybl&pn=NIDHIN%20P&tn=Order%20Payment";
 
-      // Show payment panel only after address & phone & name are present (basic)
-      showPaymentBtn.addEventListener('click', ()=> {
-        const name = nameField.value.trim();
-        const phone = phoneField.value.trim();
-        const address = addressField.value.trim();
-        if(!name || !phone || !address){
-          alert('Please fill your name, phone and full delivery address before proceeding to payment.');
-          return;
-        }
-        // reveal instructions (payment panel is already visible — we ensure UPI link updated)
-        updateTotal();
-        // scroll payment panel into view
-        paymentPanel.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      });
+    // WhatsApp Message Formatting
+    function updateWhatsAppLink() {
+        const name = document.getElementById("customerName").value;
+        const phone = document.getElementById("customerPhone").value;
+        const address = document.getElementById("customerAddress").value;
+        const qty = document.getElementById("customerQty").value;
 
-      // Send Whatsapp with prefilled order details
-      sendWhatsAppBtn.addEventListener('click', ()=> {
-        const prod = productNameInput.value.trim();
-        const unit = parseFloat(unitPriceInput.value) || 0;
-        const qty = Math.max(1, parseInt(qtyInput.value) || 1);
-        const total = (unit * qty).toFixed(2);
-        const name = nameField.value.trim();
-        const phone = phoneField.value.trim();
-        const email = emailField.value.trim();
-        const address = addressField.value.trim();
-        const note = noteField.value.trim();
-        const paymentMethod = paymentMethodSelect.value;
+        const message =
+            `Order Details:%0A` +
+            `Product: ${product}%0A` +
+            `Name: ${name}%0A` +
+            `Phone: ${phone}%0A` +
+            `Address: ${address}%0A` +
+            `Quantity: ${qty}%0A%0A` +
+            `Payment Screenshot Attached`;
 
-        if(!name || !phone || !address){
-          alert('Please fill required fields: name, phone and address.');
-          return;
-        }
+        document.getElementById("waButton").href =
+            `https://wa.me/916282960125?text=` + message;
+    }
 
-        const lines = [
-          `New order — SNM Spices`,
-          `Product: ${prod}`,
-          `Unit price: ₹${unit.toFixed(2)}`,
-          `Quantity: ${qty}`,
-          `Total: ₹${total}`,
-          `Payment method: ${paymentMethod === 'upi' ? 'UPI' : paymentMethod === 'bank' ? 'Bank Transfer' : 'Cash on Delivery (COD)'}`,
-          `Name: ${name}`,
-          `Phone: ${phone}`,
-          email ? `Email: ${email}` : '',
-          `Address: ${address}`,
-          note ? `Note: ${note}` : '',
-          '',
-          `Please confirm receipt. I have attached the payment screenshot.`
-        ].filter(Boolean).join('\n');
+    document.querySelectorAll("input, textarea").forEach(field => {
+        field.addEventListener("input", updateWhatsAppLink);
+    });
 
-        const waLink = `https://wa.me/${SELLER_WHATSAPP}?text=${encodeURIComponent(lines)}`;
-        window.open(waLink, '_blank');
-      });
+    updateWhatsAppLink();
+</script>
 
-      // update total when qty changes
-      qtyInput.addEventListener('input', updateTotal);
-      unitPriceInput.addEventListener('input', updateTotal);
-      // initialize
-      updateTotal();
-
-      // Accessibility: allow enter on phone or address to trigger proceed
-      [nameField, phoneField, addressField].forEach(el => {
-        el.addEventListener('keydown', (e) => {
-          if(e.key === 'Enter'){ e.preventDefault(); showPaymentBtn.click(); }
-        });
-      });
-
-    })();
-  </script>
 </body>
 </html>
