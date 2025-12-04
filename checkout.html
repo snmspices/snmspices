@@ -1,148 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Checkout - SNM Spices</title>
-    <link rel="stylesheet" href="style.css">
-    <style>
-        .checkout-container {
-            max-width: 600px;
-            margin: 30px auto;
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        }
-        .checkout-title {
-            text-align: center;
-            font-size: 24px;
-            font-weight: bold;
-            margin-bottom: 15px;
-        }
-        .form-group {
-            margin-bottom: 15px;
-        }
-        label {
-            font-weight: 600;
-        }
-        input, textarea {
-            width: 100%;
-            padding: 10px;
-            margin-top: 5px;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-        }
-        .payment-section {
-            margin-top: 20px;
-            text-align: center;
-        }
-        .qr-image {
-            width: 230px;
-            margin: 10px auto;
-            display: block;
-        }
-        .pay-button, .whatsapp-btn {
-            width: 100%;
-            background: green;
-            color: white;
-            padding: 12px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 18px;
-            margin-top: 10px;
-            text-decoration: none;
-            display: inline-block;
-        }
-        .whatsapp-btn {
-            background: #25D366;
-        }
-    </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Checkout – SNM Spices</title>
+    <link rel="stylesheet" href="styles.css" />
 </head>
+
 <body>
+    <header>
+        <h1>Checkout</h1>
+        <a href="index.html" class="back-btn">← Back to Home</a>
+    </header>
 
-<div class="checkout-container">
-    <div class="checkout-title">Order Checkout</div>
+    <main class="checkout-container">
 
-    <div class="form-group">
-        <label>Product</label>
-        <input type="text" id="productName" readonly>
-    </div>
+        <!-- ORDER SUMMARY SECTION -->
+        <section class="order-summary">
+            <h2>Your Order</h2>
+            <div id="orderDetails"></div>
+        </section>
 
-    <div class="form-group">
-        <label>Your Name</label>
-        <input type="text" id="customerName" placeholder="Enter your full name" required>
-    </div>
+        <!-- ADDRESS & CONTACT FORM -->
+        <section class="customer-details">
+            <h2>Customer Details</h2>
 
-    <div class="form-group">
-        <label>Phone Number</label>
-        <input type="text" id="customerPhone" placeholder="Enter your phone number" required>
-    </div>
+            <form id="checkoutForm">
+                <label>Full Name</label>
+                <input type="text" id="name" required>
 
-    <div class="form-group">
-        <label>Delivery Address</label>
-        <textarea id="customerAddress" rows="3" placeholder="House No, Street, City, Pincode" required></textarea>
-    </div>
+                <label>Phone Number</label>
+                <input type="tel" id="phone" required>
 
-    <div class="form-group">
-        <label>Quantity</label>
-        <input type="number" id="customerQty" value="1" min="1">
-    </div>
+                <label>Full Address</label>
+                <textarea id="address" required></textarea>
 
-    <div class="payment-section">
-        <h3>Make Payment</h3>
-        <img src="qr-pay.jpeg" alt="QR Code" class="qr-image">
+                <label>Pincode</label>
+                <input type="text" id="pincode" required>
 
-        <p><b>UPI ID:</b> 6282960125@ybl</p>
-        <p><b>Account Holder:</b> NIDHIN P</p>
+                <label>City</label>
+                <input type="text" id="city" required>
 
-        <!-- Pay Button -->
-        <a id="payButton" class="pay-button">Pay Now</a>
+                <label>State</label>
+                <input type="text" id="state" required>
+            </form>
+        </section>
 
-        <!-- WhatsApp Confirmation Button -->
-        <a id="waButton" class="whatsapp-btn" target="_blank">
-            Send Payment Screenshot on WhatsApp
-        </a>
-    </div>
-</div>
+        <!-- PAYMENT SECTION -->
+        <section class="payment-box">
+            <h2>Payment</h2>
 
-<script>
-    // Read product name from URL
-    const urlParams = new URLSearchParams(window.location.search);
-    const product = urlParams.get("product");
-    document.getElementById("productName").value = product;
+            <p><strong>Pay using UPI:</strong></p>
 
-    // Pay Now Button
-    document.getElementById("payButton").href =
-        "upi://pay?pa=6282960125@ybl&pn=NIDHIN%20P&tn=Order%20Payment";
+            <div class="upi-box">
+                <p class="upi-id">nidhitheeditor@okhdfcbank</p>
+            </div>
 
-    // WhatsApp Message Formatting
-    function updateWhatsAppLink() {
-        const name = document.getElementById("customerName").value;
-        const phone = document.getElementById("customerPhone").value;
-        const address = document.getElementById("customerAddress").value;
-        const qty = document.getElementById("customerQty").value;
+            <a id="payNowBtn"
+               class="pay-btn"
+               href="upi://pay?pa=nidhitheeditor@okhdfcbank&pn=NIDHIN%20P&tn=SNM%20Spices%20Order&am=&cu=INR">
+                Pay Now
+            </a>
 
-        const message =
-            `Order Details:%0A` +
-            `Product: ${product}%0A` +
-            `Name: ${name}%0A` +
-            `Phone: ${phone}%0A` +
-            `Address: ${address}%0A` +
-            `Quantity: ${qty}%0A%0A` +
-            `Payment Screenshot Attached`;
+            <p class="note">After payment, click the button below to confirm.</p>
 
-        document.getElementById("waButton").href =
-            `https://wa.me/916282960125?text=` + message;
-    }
+            <button class="order-btn" onclick="sendToWhatsApp()">
+                Confirm Order on WhatsApp
+            </button>
+        </section>
 
-    document.querySelectorAll("input, textarea").forEach(field => {
-        field.addEventListener("input", updateWhatsAppLink);
-    });
+    </main>
 
-    updateWhatsAppLink();
-</script>
+    <script>
+        // Load order details from localStorage
+        const order = JSON.parse(localStorage.getItem("order"));
+        if (order) {
+            document.getElementById("orderDetails").innerHTML = `
+                <p><strong>Product:</strong> ${order.name}</p>
+                <p><strong>Price:</strong> ₹${order.price}</p>
+            `;
+        }
+
+        // WhatsApp Confirmation
+        function sendToWhatsApp() {
+            const name = document.getElementById("name").value;
+            const phone = document.getElementById("phone").value;
+            const address = document.getElementById("address").value;
+            const pin = document.getElementById("pincode").value;
+            const city = document.getElementById("city").value;
+            const state = document.getElementById("state").value;
+
+            const message =
+                `Hello, I have made the payment.\n\n` +
+                `*Order Details:*\n` +
+                `Product: ${order.name}\n` +
+                `Price: ₹${order.price}\n\n` +
+                `*Customer Details:*\n` +
+                `Name: ${name}\n` +
+                `Phone: ${phone}\n` +
+                `Address: ${address}\n` +
+                `Pincode: ${pin}\n` +
+                `City: ${city}\n` +
+                `State: ${state}`;
+
+            const url =
+                "https://wa.me/916282960125?text=" +
+                encodeURIComponent(message);
+
+            window.location.href = url;
+        }
+    </script>
 
 </body>
 </html>
