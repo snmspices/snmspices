@@ -3,115 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Order Details - SNM Spices</title>
+    <title>Order Successful – SNM Spices</title>
+    <link rel="stylesheet" href="styles.css">
+
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: #f6f6f6;
-            padding: 20px;
-        }
-        .container {
+        .thankyou-box {
             max-width: 600px;
-            margin: auto;
-            background: #fff;
+            margin: 40px auto;
+            background: #ffffff;
             padding: 25px;
-            border-radius: 10px;
+            border-radius: 12px;
+            text-align: center;
             box-shadow: 0px 2px 10px rgba(0,0,0,0.1);
         }
-        h2 {
-            text-align: center;
+        .thankyou-box h2 {
+            color: green;
+            font-size: 26px;
+            margin-bottom: 10px;
+        }
+        .thankyou-box p {
+            font-size: 18px;
             margin-bottom: 20px;
-            color: #b30000;
+            line-height: 1.5;
         }
-        label {
-            font-weight: bold;
-            display: block;
-            margin-top: 10px;
-        }
-        input, textarea, select {
-            width: 100%;
-            padding: 10px;
-            margin-top: 3px;
-            border: 1px solid #ccc;
-            border-radius: 6px;
-        }
-        textarea {
-            height: 90px;
-        }
-        button {
-            width: 100%;
-            padding: 12px;
-            background: #b30000;
+        .btn-home {
+            padding: 12px 22px;
+            display: inline-block;
+            background: #d35400;
             color: white;
-            border: none;
-            margin-top: 20px;
-            border-radius: 6px;
-            font-size: 16px;
-            cursor: pointer;
-        }
-        button:hover {
-            background: #800000;
-        }
-        .note {
-            margin-top: 15px;
-            background: #fff3cd;
-            padding: 10px;
-            border-left: 4px solid #ffcc00;
-            border-radius: 6px;
+            font-size: 18px;
+            border-radius: 8px;
+            text-decoration: none;
         }
     </style>
 </head>
+
 <body>
 
-<div class="container">
+<header>
+    <h1>SNM Spices</h1>
+    <p>Pure • Fresh • Quality Since 2008</p>
+</header>
 
-    <h2>Order Details</h2>
-    <p>Please fill your delivery address after completing the payment.</p>
+<div class="thankyou-box">
+    <h2>Payment Successful 🎉</h2>
 
-    <form action="https://formsubmit.co/snmspices2008@gmail.com" method="POST">
+    <p>Thank you for your order!</p>
 
-        <!-- Anti-spam -->
-        <input type="hidden" name="_captcha" value="false">
-        <input type="hidden" name="_subject" value="New Order Received - SNM Spices">
-        <input type="hidden" name="_template" value="table">
+    <p>
+        To confirm delivery, please send your<br>
+        <strong>payment screenshot + full delivery address</strong><br>
+        to our WhatsApp number:
+    </p>
 
-        <label>Full Name</label>
-        <input type="text" name="Full Name" required>
+    <p><strong>📞 +91 6282960125</strong></p>
 
-        <label>Full Address</label>
-        <textarea name="Address" required></textarea>
+    <p>You will receive confirmation within 10 minutes.</p>
 
-        <label>City</label>
-        <input type="text" name="City" required>
+    <p>If needed, you can also email us:<br>
+    <strong>snmspices2008@gmail.com</strong></p>
 
-        <label>State</label>
-        <input type="text" name="State" required>
-
-        <label>Pincode</label>
-        <input type="number" name="Pincode" required>
-
-        <label>Phone Number</label>
-        <input type="tel" name="Phone" required>
-
-        <label>Email</label>
-        <input type="email" name="Email" required>
-
-        <label>Product Purchased</label>
-        <input type="text" name="Product" placeholder="Example: Chilli Powder 200g" required>
-
-        <label>Razorpay Payment ID</label>
-        <input type="text" name="Payment ID" placeholder="RP1234..." required>
-
-        <button type="submit">Submit Order</button>
-
-    </form>
-
-    <div class="note">
-        After submitting this form, we will start packing your order.  
-        You will receive a confirmation email from us.
-    </div>
-
+    <a href="index.html" class="btn-home">Back to Home</a>
 </div>
+
+<footer>
+    <p>© 2025 SNM Spices. All Rights Reserved.</p>
+</footer>
 
 </body>
 </html>
